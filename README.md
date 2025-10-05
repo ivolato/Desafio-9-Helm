@@ -15,10 +15,13 @@ curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bas
 helm version --short
 ```
 
+## Creamos el Namespace dev.
+```
+kubectl create ns dev
+kubens dev
+```
 ## Creamos un Helm Chart
 ```
-kubectl create ns nestjs
-kubens nestjs
 helm create Desafio-9
 cd Desafio-9
 ```
@@ -36,5 +39,10 @@ mv *yaml ./Desafio-9/templates
 
 ## Instalamos el Chart
 ```
-helm upgrade --install nestjs ./Desafio-9
+helm upgrade --install nestjs ./Desafio-9 -n dev
+```
+
+## Si queremos instalamos el Chart en prod
+```
+helm upgrade --install nestjs ./Desafio-9 -n prod -f ./Desafio-9/prod-values.yaml
 ```

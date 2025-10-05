@@ -1,0 +1,7 @@
+nestjsApp:
+  replicaCount: 1
+  containerPort: 3000
+
+mongoDb:
+  replicaCount: 1
+  containerPort: 27017
