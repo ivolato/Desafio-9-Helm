@@ -1,7 +1,7 @@
-# Helm ---> kubernetes
-En este trabajo pasamos el desafío 5 a kubernetes con la aplicación Kompose.
-Recordemos que en el desafío 5 a partir de una aplicación (Nestjs) se construye la imagen con Docker y el manifiesto docker-compose.yaml que despliega los contenedores NestJS y la base MongoDB para poder desplegarla con contenedores.
-Kompose traduce el manifiesto docker-compose.yaml a varios manifiestos de Kubernetes, deployment, replicaset, pvc y servicios para poder desplegar todo el entorno.
+# Helm ---> Kubernetes
+Este desafío es una continuación del desafío 5 y el desafío 8, desafíos en los cuales dockerizamos la app NestJs creando el Dockerfile y docker-compose, luego en el 8 con estos archivos y con la ayuda de la herramienta Kompose creamos los templates para crear los recursos para NestJs dentro de Kubernetes.
+Ahora en este desafío utilizamos esos manifiestos para crear nuestra aplicación dentro de Helm y podes agregar mayor valor, flexibilidad y simpleza al proceso de instalación de la app. Por ejemplo podríamos usar el mismo repo para levantar un entorno de desarrollo con los parámetros que deseamos, o el de producción con sus parámetros, también podemos modificar fácilmente los puertos o la cantidad de réplicas que se utilizaran desde el values.yaml en vez de modificar en cada manifiesto
+
 
 ## Clonar el repositorio.
 ```
