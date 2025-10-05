@@ -18,6 +18,7 @@ helm version --short
 ## Creamos el Namespace dev.
 ```
 kubectl create ns dev
+kubectl create ns prod
 kubens dev
 ```
 ## Creamos un Helm Chart
@@ -30,6 +31,8 @@ cd Desafio-9
 ```
 rm -rf templates
 mkdir templates
+rm values.yaml
+mv ../valores/values.yaml .
 ```
 ## Movemos los manifiestos del repositorio a templates
 ```
@@ -42,7 +45,7 @@ mv *yaml ./Desafio-9/templates
 helm upgrade --install nestjs ./Desafio-9 -n dev
 ```
 
-## Si queremos instalamos el Chart en prod
+## Verificamos si se aplicaron correctamente los templates
 ```
-helm upgrade --install nestjs ./Desafio-9 -n prod -f ./Desafio-9/prod-values.yaml
+kubectl get all -n dev
 ```
