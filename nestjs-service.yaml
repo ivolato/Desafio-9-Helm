@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml -o kubernetes
+    kompose.version: 1.37.0 (fb0539e64)
+  labels:
+    io.kompose.service: nestjs
+  name: nestjs
+spec:
+  type: NodePort
+  ports:
+    - name: "3000"
+      port: 3000
+      targetPort: 3000
+  selector:
+    io.kompose.service: nestjs

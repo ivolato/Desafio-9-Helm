@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yaml -o kubernetes
+    kompose.version: 1.37.0 (fb0539e64)
+  labels:
+    io.kompose.service: nestjs
+  name: nestjs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: nestjs
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yaml -o kubernetes
+        kompose.version: 1.37.0 (fb0539e64)
+      labels:
+        io.kompose.service: nestjs
+    spec:
+      containers:
+        - image: ivolato/nestjs-app:latest
+          name: nestjs
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+          stdin: true
+      restartPolicy: Always
