@@ -17,10 +17,24 @@ helm version --short
 
 ## Creamos un Helm Chart
 ```
-helm create mychart
+kubectl create ns nestjs
+kubens nestjs
+helm create Desafio-9
+cd Desafio-9
+```
+
+## Limpiamos la carpeta Templates
+```
+rm -rf templates
+mkdir templates
+```
+## Movemos los manifiestos del repositorio a templates
+```
+cd ..
+mv *yaml ./Desafio-9/templates
 ```
 
 ## Instalamos el Chart
 ```
-helm upgrade --install Desafio-9 ./mychart
+helm upgrade --install nestjs ./Desafio-9
 ```
